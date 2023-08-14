@@ -1,0 +1,30 @@
+```astro
+---
+import { Astro } from 'astro/dist/types';
+import { EstimateResult } from '../components/EstimateResult.astro';
+
+interface PriceEstimateProps {
+  estimate: any;
+}
+
+const PriceEstimate: Astro.Component<PriceEstimateProps> = (props) => {
+  const { estimate } = props;
+
+  return (
+    <>
+      <h2>Price Estimate</h2>
+      {estimate && (
+        <EstimateResult
+          weight={estimate['Weight (g)']}
+          volume={estimate['Volume (cm³)']}
+          costPrice={estimate['Cost Price ($)']}
+          sellingPrice={estimate['Selling Price ($)']}
+          profitMargin={estimate['Gross Profit Margin (%)']}
+        />
+      )}
+    </>
+  );
+};
+
+export default PriceEstimate;
+```

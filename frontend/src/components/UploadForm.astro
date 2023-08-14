@@ -1,0 +1,37 @@
+```astro
+---
+import { uploadFile } from '../utils/api.js';
+---
+
+<form id="upload-form" @submit={handleFileUpload}>
+  <label for="upload-file-input">Upload your .3mf or .stl file:</label>
+  <input id="upload-file-input" type="file" accept=".3mf,.stl" required />
+  <button type="submit">Upload</button>
+</form>
+
+<script>
+  async function handleFileUpload(event) {
+    event.preventDefault();
+
+    const fileInput = document.getElementById('upload-file-input');
+    const file = fileInput.files[0];
+
+    if (!file) {
+      alert('Please select a file to upload.');
+      return;
+    }
+
+    try {
+      const response = await uploadFile(file);
+      if (response.ok) {
+        alert('File uploaded successfully.');
+      } else {
+        alert('Failed to upload file.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred while uploading the file.');
+    }
+  }
+</script>
+```

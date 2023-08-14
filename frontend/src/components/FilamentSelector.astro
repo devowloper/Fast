@@ -1,0 +1,17 @@
+```astro
+---
+import { createEventDispatcher } from 'svelte';
+
+const dispatch = createEventDispatcher();
+let filamentType = 'PLA';
+
+function handleFilamentChange(event) {
+  filamentType = event.target.value;
+  dispatch('filamentChange', filamentType);
+}
+---
+<select id="filament-selector" bind:value={filamentType} on:change={handleFilamentChange}>
+  <option value="PLA">PLA</option>
+  <option value="PETG">PETG</option>
+</select>
+```

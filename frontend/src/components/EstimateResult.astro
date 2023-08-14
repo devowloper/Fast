@@ -1,0 +1,33 @@
+```astro
+---
+import { Astro } from 'astro/dist/types';
+---
+<EstimateResult {estimate}>
+
+  <h2>Estimate Result</h2>
+
+  <table>
+    <tr>
+      <th>Weight (g)</th>
+      <td>{estimate['Weight (g)']}</td>
+    </tr>
+    <tr>
+      <th>Volume (cm³)</th>
+      <td>{estimate['Volume (cm³)']}</td>
+    </tr>
+    <tr>
+      <th>Cost Price ($)</th>
+      <td>{estimate['Cost Price ($)']}</td>
+    </tr>
+    <tr>
+      <th>Selling Price ($)</th>
+      <td>{estimate['Selling Price ($)']}</td>
+    </tr>
+    <tr>
+      <th>Gross Profit Margin (%)</th>
+      <td>{estimate['Gross Profit Margin (%)']}</td>
+    </tr>
+  </table>
+
+</EstimateResult>
+```
