@@ -1,0 +1,10 @@
+```astro
+---
+import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+---
+
+<button id="submit-button" on:click={() => dispatch('submit')}>
+  Calculate Price
+</button>
+```

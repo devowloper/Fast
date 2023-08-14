@@ -1,0 +1,20 @@
+```astro
+---
+import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+let modelUrl = '';
+
+onMount(async () => {
+  modelUrl = URL.createObjectURL($modelFile);
+});
+
+function handleModelLoad() {
+  dispatch('modelLoaded');
+}
+---
+
+<div id="model-preview">
+  <h2>Model Preview</h2>
+  <model-viewer src={modelUrl} alt="3D model preview" auto-rotate camera-controls @load={handleModelLoad}></model-viewer>
+</div>
+```
